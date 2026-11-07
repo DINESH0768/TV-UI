@@ -1,0 +1,13 @@
+<resources>
+    <!-- Base TV Application Theme -->
+    <style name="Theme.AuraTV" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/bg_primary</item>
+        <item name="android:colorPrimary">@color/accent_blue</item>
+        <item name="android:colorPrimaryDark">@color/bg_primary</item>
+        <item name="android:colorAccent">@color/accent_blue</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+    </style>
+</resources>

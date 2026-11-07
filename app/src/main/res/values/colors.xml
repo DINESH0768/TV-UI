@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core Dark Liquid Glass Palette -->
+    <color name="bg_primary">#090D16</color>
+    <color name="bg_secondary">#101827</color>
+    <color name="bg_card">#172235</color>
+    <color name="accent_blue">#86B9FF</color>
+    <color name="accent_cyan">#65D6E8</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B7C9DE</color>
+    <color name="text_muted">#6882A0</color>
+
+    <!-- Translucent Liquid Glass Overlays -->
+    <color name="glass_fill">#D9172235</color>
+    <color name="glass_fill_light">#5921314C</color>
+    <color name="glass_border">#3386B9FF</color>
+    <color name="glass_border_focused">#FF86B9FF</color>
+    <color name="glass_capsule_fill">#CC101827</color>
+    <color name="glass_capsule_border">#4D86B9FF</color>
+    <color name="focus_highlight">#3386B9FF</color>
+
+    <!-- Status / Accent badges -->
+    <color name="status_green">#10B981</color>
+    <color name="status_orange">#F59E0B</color>
+</resources>
