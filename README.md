@@ -75,11 +75,21 @@ AURA TV is fully operable using standard Android TV remote controls (no touchscr
 
 ### Build Debug APK
 ```bash
-# Clean and assemble
 ./gradlew clean assembleDebug
 ```
-The resulting APK will be generated at:
-`app/build/outputs/apk/debug/app-debug.apk`
+Output path: `app/build/outputs/apk/debug/app-debug.apk` (Size: ~6.75 MB)
+
+### Build Release APK
+```bash
+./gradlew assembleRelease
+```
+Output path: `app/build/outputs/apk/release/app-release-unsigned.apk` (Size: ~5.32 MB)
+*Note: The release APK is unsigned because production signing keys are kept private. It can be signed using `apksigner` with your release keystore.*
+
+### Sign Release APK (Optional)
+```bash
+apksigner sign --ks <your-keystore.jks> --out app-release-signed.apk app/build/outputs/apk/release/app-release-unsigned.apk
+```
 
 ### Install via ADB
 ```bash
@@ -88,10 +98,15 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 ---
 
-## 7. Phase 1 Accomplishments
-- [x] Initialized Gradle Kotlin DSL project with Gradle 8.8 and Android Gradle Plugin 8.4.1.
-- [x] Configured Android TV `AndroidManifest.xml` with `LEANBACK_LAUNCHER`, `HOME`, `DEFAULT`, and `LAUNCHER` intent filters.
-- [x] Implemented Dark Liquid Glass design system (palette `#090D16`, `#101827`, `#172235`, `#86B9FF`, `#65D6E8`).
-- [x] Built TV-adapted Dynamic Island status capsule, oversized digital clock, live time/date ticker, and network status monitor.
-- [x] Built horizontal installed apps launcher with background package query and leanback launch intent resolution.
-- [x] Verified APK build and badging metadata (`com.aura.tv`, 6.75 MB).
+## 7. Artifact Verification & Checksums
+| Variant | File | Size | SHA-256 Checksum |
+| :--- | :--- | :--- | :--- |
+| **Debug** | `app-debug.apk` | 7,076,053 bytes (6.75 MB) | `54ae2ec722cce93b88242e5a2c0f08f2de5e09c14ed0fa677e6c99e9482cf205` |
+| **Release (Unsigned)** | `app-release-unsigned.apk` | 5,581,604 bytes (5.32 MB) | `8d874fd52f1acc1c06a09247aac3b43fe79acea09904909b6cae442c650d8439` |
+
+Both artifacts were inspected using `aapt dump badging`:
+- `package: name='com.aura.tv'`
+- `launchable-activity: name='com.aura.tv.ui.MainActivity'`
+- `leanback-launchable-activity: name='com.aura.tv.ui.MainActivity'`
+- `uses-feature-not-required: name='android.software.leanback'`
+- `uses-feature-not-required: name='android.hardware.touchscreen'`
